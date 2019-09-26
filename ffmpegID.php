@@ -2,7 +2,11 @@
 <?php   ini_set("error_reporting", ~E_ALL);  
  exec( '  pgrep  ffmpeg   ', $ot , $rt ) ; //  
  $pid     =  $ot[0]     ;
- 
+if( !file_exists(  'ffmpegID.txt'  ) )
+  {  $fp = fopen( 'ffmpegID.txt'  , '');
+     fclose($fp);
+  }
+
 $lastID  =  explode  (   PHP_EOL , file_get_contents( 'ffmpegID.txt' )  )  ;
 $lastID2 =     $lastID [ count (  $lastID  ) - 2  ] ; 
 var_dump (  $lastID2    );
